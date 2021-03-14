@@ -52,6 +52,7 @@ object Functions extends App {
   println(fibonacci(5))
   println(fibonacci(8))
   def isPrime(n: Int): Boolean = {
+     @tailrec
      def divide(dividend: Int, divisor: Int): Boolean = {
        if (divisor == 1) true
        else if (dividend % divisor == 0) false
