@@ -23,9 +23,7 @@ object WhatsAFunction extends App {
 
   val concatenate = (v1: String, v2: String) => v1 + v2
 
-  val inter: ((Int) => Int => Int) = (v1: Int) => new Function[Int, Int] {
-    override def apply(v2: Int): Int = v1 + v2
-  }
+  val inter: Int => Int => Int = (v1: Int) => (v2: Int) => v1 + v2
 
   println(inter(1)(2))
   println(concatenate("foo", "bar"))

@@ -92,6 +92,6 @@ object ListExercise extends App {
   val stringList = Cons("foo")
   println(stringList.add("bar").add("xyz").add("abc").toString)
   val listWithStuff = list.add(2).add(3)
-  println(listWithStuff.map((v1: Int) => v1 * 2).toString)
-  println(listWithStuff.filter((v1: Int) => v1 % 2 == 0).toString)
+  println(listWithStuff.map(_ * 2).toString)
+  println(listWithStuff.filter(_ % 2 == 0).toString)
 }
