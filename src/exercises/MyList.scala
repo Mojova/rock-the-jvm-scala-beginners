@@ -24,7 +24,7 @@ abstract class MyList[+A] {
   def ++[B >: A](list: MyList[B]): MyList[B]
 }
 
-object EmptyList extends MyList[Nothing] {
+case object EmptyList extends MyList[Nothing] {
   override def head: Nothing = throw new NoSuchElementException
 
   override def tail: MyList[Nothing] = throw new NoSuchElementException
@@ -44,7 +44,7 @@ object EmptyList extends MyList[Nothing] {
   override def ++[B >: Nothing](list: MyList[B]): MyList[B] = list
 }
 
-class Cons[+A](h: A, t: MyList[A] = EmptyList) extends MyList[A] {
+case class Cons[+A](h: A, t: MyList[A] = EmptyList) extends MyList[A] {
   override def head: A = h
 
   override def tail: MyList[A] = t
@@ -108,9 +108,9 @@ object Doubler extends MyTransformer[Int, Int] {
 }
 
 object ListExercise extends App {
-  val list = new Cons(5)
+  val list = Cons(5)
   println(list.add(2).add(3).toString)
-  val stringList = new Cons("foo")
+  val stringList = Cons("foo")
   println(stringList.add("bar").add("xyz").add("abc").toString)
   val listWithStuff = list.add(2).add(3)
   println(listWithStuff.map(Doubler).toString)
