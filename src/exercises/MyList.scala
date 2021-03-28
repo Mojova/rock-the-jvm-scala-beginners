@@ -144,4 +144,15 @@ object ListExercise extends App {
   println(listWithStuff.filter(_ % 2 == 0).toString)
 
   println(listOfIntegers.sort((x, y) => y - x))
+
+  val numbers = Cons(1).add(2).add(3).add(4)
+  val characters = Cons('a').add('b').add('c').add('d')
+  val colors = Cons("black").add("white")
+
+  val forCombinations = for {
+    n <- numbers
+    c <- characters
+    color <- colors
+  } yield c + n.toString + color
+  println(forCombinations)
 }
